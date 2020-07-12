@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2020 at 04:26 PM
+-- Generation Time: Jul 12, 2020 at 02:36 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -130,7 +130,8 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`employee_id`, `first_name`, `last_name`, `package_id`, `fk_mds`, `fk_process`) VALUES
 (12, 'Mark', 'Andersons', 4, NULL, 1),
-(13, 'Lissy', 'Kempel', 2, NULL, 2);
+(13, 'Lissy', 'Kempel', 2, NULL, 2),
+(14, 'Sander', 'Green', 1, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -196,7 +197,8 @@ CREATE TABLE `process` (
 
 INSERT INTO `process` (`process_id`, `process_st_date`, `process_end_date`, `fk_process_status`, `package_id`) VALUES
 (1, '2020-06-13', '2020-07-25', 2001, 4),
-(2, '2020-07-15', '2020-07-10', 2002, 2);
+(2, '2020-07-10', '2020-07-15', 2002, 2),
+(3, '2020-07-10', '2020-07-15', 2003, 3);
 
 -- --------------------------------------------------------
 
@@ -218,7 +220,8 @@ CREATE TABLE `process_status` (
 
 INSERT INTO `process_status` (`process_status_id`, `received`, `on_hold`, `send`, `package_id`) VALUES
 (2001, 'YES', 'NO', 'YES', 4),
-(2002, 'YES', 'YES', 'Pending', 2);
+(2002, 'YES', 'YES', 'Pending', 2),
+(2003, 'YES', 'NO', 'YES', 3);
 
 -- --------------------------------------------------------
 
@@ -240,7 +243,9 @@ CREATE TABLE `recipient` (
 --
 
 INSERT INTO `recipient` (`r_id`, `r_fname`, `r_lname`, `fk_recipient_status`, `package_id`, `fk_process`) VALUES
-(1, 'Kirsten', 'sterling', 1, 4, 1);
+(1, 'Kirsten', 'sterling', 1, 4, 1),
+(2, 'Karl', 'Thomson', 2, 2, 2),
+(3, 'Pistacho', 'Nero', 3, 3, 3);
 
 -- --------------------------------------------------------
 
@@ -260,7 +265,9 @@ CREATE TABLE `recipient_status` (
 --
 
 INSERT INTO `recipient_status` (`recipient_status_id`, `received_date`, `received_time`, `package_id`) VALUES
-(1, '2020-07-26', '17:00:00', 4);
+(1, '2020-07-26', '17:00:00', 4),
+(2, '2020-07-26', '16:30:00', 2),
+(3, '2020-09-17', '15:00:00', 3);
 
 --
 -- Indexes for dumped tables
